@@ -24,10 +24,15 @@ This Google Cloud Function appends SQL results to a Google Sheet
 1. [Create and access secrets](https://cloud.google.com/secret-manager/docs/creating-and-accessing-secrets) such as a database connection string or the private key of a service account
 2. Store the resource ids of your secrets as environment variables so you can access them at run time
 
+# Create and Configure Your Cron Jobs with Cloud Scheduler
+1. [Define a schedule](https://cloud.google.com/scheduler/docs/creating) using a unix-cron configuration string
+2. Specify the target as the HTTP endpoint of your Cloud Function
+
 # Pricing
-* Cloud Functions, Serverless VPC Access, Cloud NAT and Secret Manager are paid products that require biling to use.
+* Cloud Functions, Serverless VPC Access, Cloud NAT, Secret Manager and Cloud Scheduler are paid products that require biling to use.
 * [The first 2 million Cloud Function invocations per month are free](https://cloud.google.com/functions/pricing) *Phew*
 * Serverless VPC Access and Cloud NAT charges are based on the ammount of traffic that is processed.
 * [Serverless VPC Access Pricing](https://cloud.google.com/vpc/docs/configure-serverless-vpc-access#pricing)
 * [Cloud NAT Pricing](https://cloud.google.com/nat/pricing)
 * [Secret Manager](https://cloud.google.com/secret-manager/pricing) charges are based on how many secrets you keep and how many times per month they are accessed
+* [Cloud Scheduler](https://cloud.google.com/scheduler/pricing) offers 3 jobs per month free and charges $0.10 per job per month after that
