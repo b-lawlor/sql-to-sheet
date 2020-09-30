@@ -7,7 +7,7 @@ from google.oauth2 import service_account
 from google.cloud import secretmanager
 
 # environment variables should be set to the resource ids of your secrets in the global scope
-# which can improve performance when Cloud Functions recyles it's execution environment
+# which can improve performance when Cloud Functions recyles its execution environment
 client = secretmanager.SecretManagerServiceClient()
 secret_response = client.access_secret_version(os.environ["III_SECRET"])
 iii_secret = secret_response.payload.data.decode('UTF-8')
@@ -58,6 +58,7 @@ def queryDb(sql):
 
 def appendToSheet(data, spreadSheetId):
     # appends 2d array to the specified sheet, byo spreadsheet and service account
+    # the service account will need to have edit rights and a sheet named 'data'
     scopes = ["https://www.googleapis.com/auth/spreadsheets"]
     creds = service_account.Credentials.from_service_account_info(sheets_secret, scopes=scopes)
     service = build('sheets', 'v4', credentials=creds)
