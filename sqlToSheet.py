@@ -62,7 +62,6 @@ def appendToSheet(data, spreadSheetId):
     creds = service_account.Credentials.from_service_account_info(sheets_secret, scopes=scopes)
     service = build('sheets', 'v4', credentials=creds)
 
-    #sheet = service.spreadsheets()
     request = service.spreadsheets().values().append(
         spreadsheetId=spreadSheetId, range='data!A1:Z1',
         valueInputOption='USER_ENTERED' ,body={'values': data})
